@@ -1,7 +1,9 @@
 #include <iostream>
+#include <windows.h>
 #include <cmath>
 
 using namespace std;
+void color(int X);
 
 int main(){
 bool use = true;
@@ -12,18 +14,22 @@ char op;
 double firstnum, secnum, result;
 cin >> firstnum >> op >> secnum;
 if(op == '+'){
+        color (6);
 	result = firstnum + secnum;
 	use = false;
 		}
 else if(op == '-'){
+        color (1);
 	result = firstnum - secnum;
 use = false;
 	}
 else if(op == '*'){
+        color (3);
 	result = firstnum * secnum;
 	use = false;
 	}
 else if(op == '/'){
+     color (4);
 	result = firstnum / secnum;
 	use = false;
 	}
@@ -38,4 +44,8 @@ cout << "Your result is:" << result << endl;
 		break;
 	}
 	}
+}
+void color(int X)
+{
+    SetConsoleTextAttribute(GetStdHandle (STD_OUTPUT_HANDLE),X);
 }
